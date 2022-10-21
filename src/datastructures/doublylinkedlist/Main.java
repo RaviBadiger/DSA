@@ -1,4 +1,6 @@
-package datastructures;
+package datastructures.doublylinkedlist;
+
+import datastructures.doublylinkedlist.DoublyLinkedList;
 
 public class Main {
     public static void main(String[] args) {
