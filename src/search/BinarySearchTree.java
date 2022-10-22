@@ -1,4 +1,4 @@
-package datastructures.trees;
+package search;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -70,6 +70,59 @@ public class BinarySearchTree {
                 queue.add(currentNode.right);
             }
         }
+        return results;
+    }
+
+    public ArrayList<Integer> dFSPreOrder(){
+        ArrayList<Integer> results = new ArrayList<>();
+
+        class Traverse{
+            Traverse(Node currentNode){
+                results.add(currentNode.value);
+                if(currentNode.left!= null){
+                    new Traverse(currentNode.left);
+                }
+                if(currentNode.right != null){
+                    new Traverse(currentNode.right);
+                }
+            }
+        }
+        new Traverse(root);
+        return results;
+    }
+
+
+    public ArrayList<Integer> dFSPostOrder(){
+        ArrayList<Integer> results = new ArrayList<>();
+        class Traverse{
+            Traverse(Node currentNode){
+                if(currentNode.left != null){
+                    new Traverse(currentNode.left);
+                }
+                if(currentNode.right != null){
+                    new Traverse(currentNode.right);
+                }
+                results.add(currentNode.value);
+            }
+        }
+        new Traverse(root);
+        return results;
+    }
+
+    public ArrayList<Integer> dFSInOrder(){
+        ArrayList<Integer> results = new ArrayList<>();
+        class Traverse{
+            Traverse(Node currentNode){
+                if(currentNode.left != null){
+                    new Traverse(currentNode.left);
+                }
+                results.add(currentNode.value);
+                if(currentNode.right != null){
+                    new Traverse(currentNode.right);
+                }
+            }
+        }
+        new Traverse(root);
         return results;
     }
 }
